@@ -1,0 +1,40 @@
+﻿<Window x:Class="superProjWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:superProjWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\ZenBook\Downloads\banan.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Grid Margin="10" Background="Transparent">
+            <DataGrid x:Name="booksDataGrid" AutoGenerateColumns="False" Margin="10">
+                <DataGrid.Style>
+                    <Style TargetType="DataGrid">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="RowBackground" Value="Transparent"/>
+                        <Setter Property="AlternatingRowBackground" Value="Transparent"/>
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                        <Setter Property="RowHeaderStyle" Value="{x:Null}"/>
+                    </Style>
+                </DataGrid.Style>
+                <DataGrid.Columns>
+                <DataGridTextColumn Header="Название книги" Binding="{Binding title}" Width="*" />
+                <DataGridTextColumn Header="Автор" Binding="{Binding author}" Width="*" />
+                <DataGridTextColumn Header="Год издания" Binding="{Binding yearOfPublication}" Width="*" />
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Купить" Click="BuyButton_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        </Grid>
+    </Grid>
+</Window>
